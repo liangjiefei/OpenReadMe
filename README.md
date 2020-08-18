@@ -1,3 +1,8 @@
+-[中控服务端API说明](#中控服务端API说明)  
+-[API返回格式说明](#API返回格式说明)  
+-[API返回代码说明](#API返回代码说明)  
+-[参考交易所类API](#参考交易所类API)  
+-[更新或添加参考交易所类](#更新或添加参考交易所类)
 #中控服务端API说明
 
 ### BASE_URL=http://47.240.44.22:8090
@@ -34,6 +39,7 @@ Parameters:
 
 | Name | Type | Example | Description  |
 | ---- | ---- | -------- | ------------ |
+| id | STRING | 1 | 为空则创建新的交易所类 |
 | name | STRING | okex | 参考交易所名|
 | params_description | STRING | {...} | 参数描述 |
 ```
@@ -97,6 +103,7 @@ Parameters:
 
 | Name | Type | Example | Description  |
 | ---- | ---- | -------- | ------------ |
+| id | STRING | 1 | 参考交易所实例id |
 | name | STRING | okex | 参考交易所名|
 | params | STRING | {...} | 参数|
 | class_id | STRING | 1 | 参考交易所类id |
@@ -263,10 +270,10 @@ Parameters:
 | Name | Type | Example | Description  |
 | ---- | ---- | -------- | ------------ |
 | name | STRING | 测试策略 | 名称 |
-| group_id | STRING | 1 | 策略组id |
-| class_id | STRING | 1 | 策略类id |
-| client_id | STRING | 1 | 客户端id |
-| status | STRING | 0 | 状态 |
+| group_id | INT | 1 | 策略组id |
+| class_id | INT | 1 | 策略类id |
+| client_id | INT | 1 | 客户端id |
+| status | INT | 0 | 状态 |
 | params | STRING | {...} | 参数 |
 ```
 POST /strategy-object
