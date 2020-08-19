@@ -173,8 +173,8 @@ Parameters:
 | symbol | STRING | BTC-USDT | 交易对 |
 | api_key | STRING | hoo6666666 | api_key |
 | secret | STRING | hoo9999999 | secret |
-| price_precision | STRING | 4 | 价格精度 |
-| volume_precision | STRING | 4 | 数量精度 |
+| price_precision | float | 0.001 | 价格最小变动单位 |
+| volume_precision | float | 0.001 | 数量最小变动单位 |
 
 ```
 POST /exchange
