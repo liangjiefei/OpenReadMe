@@ -406,13 +406,12 @@ Response:
 	"data": {}
 }
 ```
-### 3.通过公网ip和内网ip获取客户端id
+### 3.通过公网ip获取客户端id
 Parameters:
 
 | Name | Type | Example | Description  |
 | ---- | ---- | -------- | ------------ |
 | public_host | STRING | 34.423.423.99 | 公网ip |
-| private_host | STRING | 127.0.0.1 | 内网ip |
 ```
 GET /client
 ```
@@ -449,6 +448,37 @@ Response:
         }
     ],
     "msg": "查询成功"
+}
+```
+### 5.编辑客户端备注
+Parameters:
+| Name | Type | Example | Description  |
+| ---- | ---- | -------- | ------------ |
+| id | STRING | 1 | 客户端id |
+| remark | STRING | 1 |  备注 |
+```
+POST /client/remark
+```
+Response:
+```json
+{
+    "code": 20000,
+    "data": {
+        "CreatedAt": "2020-07-02T16:09:19+08:00",
+        "UpdatedAt": "2020-08-19T15:49:04.816883+08:00",
+        "DeletedAt": null,
+        "ID": 2,
+        "name": "测试客户端2",
+        "public_host": "434.343.222",
+        "private_host": "127.0.0.1",
+        "port": "8090",
+        "strategy_group_number": 0,
+        "cpu_usage": 0,
+        "mem_usage": 0,
+        "disk_usage": 0,
+        "remark": "dsdfsdf"
+    },
+    "msg": "更新客户端备注成功"
 }
 ```
 
