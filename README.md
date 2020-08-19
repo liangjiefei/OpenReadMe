@@ -228,7 +228,7 @@ Response:
 ```
 
 ## 策略类API
-###1.更新或添加策略类
+### 1.更新或添加策略类
 Parameters:
 | Name | Type | Example | Description  |
 | ---- | ---- | -------- | ------------ |
@@ -246,7 +246,7 @@ Response:
 	"data": {}
 }
 ```
-###2.删除策略类
+### 2.删除策略类
 ```
 DElETE /strategt-class/{class_id}
 ```
@@ -258,7 +258,7 @@ Response:
 	"data": {}
 }
 ```
-###3.获取所有策略类
+### 3.获取所有策略类
 ```
 GET /strategt-classes
 ```
@@ -272,7 +272,7 @@ Response:
 ```
 
 ## 策略实例API  
-###1.更新或添加策略实例
+### 1.更新或添加策略实例
 Parameters:
 
 | Name | Type | Example | Description  |
@@ -294,7 +294,7 @@ Response:
 	"data": {}
 }
 ```
-###2.删除策略实例
+### 2.删除策略实例
 ```
 DELETE /strategy-object/{strategy_id}
 ```
@@ -306,7 +306,7 @@ Response:
 	"data": {}
 }
 ```
-###3.获取单个策略实例
+### 3.获取单个策略实例
 ```
 GET /strategy-object/{strategy_id}
 ```
@@ -327,7 +327,7 @@ Response:
     "msg": "查询成功"
 }
 ```
-###4.获取所有策略实例
+### 4.获取所有策略实例
 ```
 GET /strategy-objects
 ```
@@ -350,7 +350,7 @@ Response:
     "msg": "查询成功"
 }
 ```
-###5.获取单个客户端策略实例
+### 5.获取单个客户端策略实例
 ```
 GET /strategy-objects/{client_id}
 ```
@@ -374,7 +374,7 @@ Response:
 }
 ```
 ##客户端API
-###1.更新或添加客户端
+### 1.更新或添加客户端
 Parameters:
 
 | Name | Type | Example | Description  |
@@ -394,7 +394,7 @@ Response:
 	"data": {}
 }
 ```
-###2.删除客户端
+### 2.删除客户端
 ```
 DELETE /client/{client_id}
 ```
@@ -406,7 +406,7 @@ Response:
 	"data": {}
 }
 ```
-###3.通过公网ip和内网ip获取客户端id
+### 3.通过公网ip和内网ip获取客户端id
 Parameters:
 
 | Name | Type | Example | Description  |
@@ -424,7 +424,7 @@ Response:
     "msg": "查询成功"
 }
 ```
-###4.获取所有客户端
+### 4.获取所有客户端
 ```
 GET /clients
 ```
@@ -453,7 +453,7 @@ Response:
 ```
 
 ## 策略操作API
-###1. 操作策略
+### 1. 操作策略
 Parameters:
 
 | Name | Type | Example | Description  |
@@ -474,7 +474,7 @@ Response:
 ```
 
 ## 用户API
-###1. 更新或添加用户
+### 1. 更新或添加用户
 Parameters:
 
 | Name | Type | Example | Description  |
@@ -502,7 +502,7 @@ Response:
     "msg": "存储成功"
 }
 ```
-###2. 删除用户
+### 2. 删除用户
 ```
 DELETE /user/{user_id}
 ```
@@ -514,7 +514,7 @@ Response:
     "msg": "删除成功"
 }
 ```
-###3. 获取所有用户    
+### 3. 获取所有用户    
 ```
 GET /users
 ```
@@ -539,7 +539,7 @@ Response:
 }
 ```
 ## 登陆API
-###1. 登陆(返回的token需要带在headers内,其他所有的接口都需要验证token,目前还没做)
+### 1. 登陆(返回的token需要带在headers内,其他所有的接口都需要验证token,目前还没做)
 Parameters:
 
 | Name | Type | Example | Description  |
@@ -560,7 +560,7 @@ Response:
 }
 ```
 ## 权限API
-###1.更新或添加权限
+### 1.更新或添加权限
 Parameters:
 
 | Name | Type | Example | Description  |
@@ -585,7 +585,7 @@ Response:
     "msg": "存储成功"
 }
 ```
-###2.删除权限
+### 2.删除权限
 ```
 DELETE /power/{power_id}
 ```
@@ -597,7 +597,7 @@ Response:
     "msg": "删除成功"
 }
 ```
-###3.获取所有权限
+### 3.获取所有权限
 ```
 GET /powers
 ```
@@ -620,7 +620,7 @@ Response:
 }
 ```
 ## 用户权限API
-###1.增加用户权限
+### 1.增加用户权限
 Parameters:
 
 | Name | Type | Example | Description  |
@@ -642,7 +642,7 @@ Response:
     "msg": "存储成功"
 }
 ```
-###2.删除用户权限
+### 2.删除用户权限
 ```
 DELETE /user-power/{user_power_id}
 ```
@@ -654,7 +654,7 @@ Response:
     "msg": "删除成功"
 }
 ```
-###3.获取所有用户权限
+### 3.获取所有用户权限
 ```
 GET /user-powers
 ```
@@ -675,7 +675,7 @@ Response:
     "msg": "查询成功"
 }
 ```
-###4.获取某个用户权限
+### 4.获取某个用户权限
 ```
 GET /user-powers/{user_id}
 ```
@@ -697,7 +697,7 @@ Response:
 }
 ```
 ## 策略组API
-###1.更新或添加策略组
+### 1.更新或添加策略组
 | Name | Type | Example | Description  |
 | ---- | ---- | -------- | ------------ |
 | id | INT | 1 | 策略组id(如果为空则为新建) |
@@ -731,7 +731,7 @@ Response:
     "msg": "查询成功"
 }
 ```
-###2.查询所有策略组
+### 2.查询所有策略组
 ```
 GET /strategy-groups
 ```
@@ -759,7 +759,7 @@ Response:
     "msg": "查询成功"
 }
 ```
-###3.删除策略组
+### 3.删除策略组
 ```
 DELETE /strategy-group/{group_id}
 ```
