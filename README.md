@@ -232,9 +232,11 @@ Response:
 Parameters:
 | Name | Type | Example | Description  |
 | ---- | ---- | -------- | ------------ |
+| id | INT | 1 | 策略类id(如果为空则为新建) |
 | name | STRING | 测试策略类 | 名称 |
 | application_name | STRING | testStrategyClass | 应用程序名 |
 | params_description | STRING | {...} | 参数描述 |
+| strategy_class_description | STRING | 这是一个测试策略类 | 策略类描述 |
 ```
 POST /strategt-class
 ```
