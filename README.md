@@ -2,7 +2,17 @@
 -[API返回格式说明](#API返回格式说明)  
 -[API返回代码说明](#API返回代码说明)  
 -[参考交易所类API](#参考交易所类API)  
--[更新或添加参考交易所类](#更新或添加参考交易所类)
+-[参考交易所API](#参考交易所API)  
+-[做市交易所API](#做市交易所API)  
+-[策略类API](#策略类API)  
+-[策略实例API](#策略类API)  
+-[客户端API](#客户端API)
+-[策略操作API](#策略操作API)    
+-[用户API](#用户API)  
+-[登陆API](#登陆API)  
+-[权限API](#权限API)  
+-[用户权限API](#用户权限API)  
+-[策略组API](#策略组API)  
 #中控服务端API说明
 
 ### BASE_URL=http://47.240.44.22:8090
@@ -686,4 +696,78 @@ Response:
     "msg": "查询成功"
 }
 ```
-
+## 策略组API
+###1.更新或添加策略组
+| Name | Type | Example | Description  |
+| ---- | ---- | -------- | ------------ |
+| id | INT | 1 | 策略组id(如果为空则为新建) |
+| name | STRING | 测试 | 策略组名称 |
+| client_id | INT | /1 | 客户端id |
+| strategy_objects | LIST | [{"strategy_object_id","strategy_class_id": 1, "strategy_status": 0}] | strategy_object_id为空是则表示新建 |
+```
+POST /strategy-group
+```
+Response:
+```json
+{
+    "code": 20000,
+    "data": [
+                {
+                    "id": 13,
+                    "name": "liangjiefei2",
+                    "client_id": 1,
+                    "strategy_objects": [
+                        {
+                            "strategy_object_id": 14,
+                            "strategy_class_id": 13,
+                            "strategy_status": 0
+                        }
+                    ],
+                    "CreatedAt": "2020-08-19T10:33:04+08:00",
+                    "UpdatedAt": "2020-08-19T10:33:04+08:00",
+                    "DeletedAt": null
+                }
+    ],
+    "msg": "查询成功"
+}
+```
+###2.查询所有策略组
+```
+GET /strategy-groups
+```
+Response:
+```json
+{
+    "code": 20000,
+    "data": [
+                {
+                    "id": 13,
+                    "name": "liangjiefei2",
+                    "client_id": 1,
+                    "strategy_objects": [
+                        {
+                            "strategy_object_id": 14,
+                            "strategy_class_id": 13,
+                            "strategy_status": 0
+                        }
+                    ],
+                    "CreatedAt": "2020-08-19T10:33:04+08:00",
+                    "UpdatedAt": "2020-08-19T10:33:04+08:00",
+                    "DeletedAt": null
+                }
+    ],
+    "msg": "查询成功"
+}
+```
+###3.删除策略组
+```
+DELETE /strategy-group/{group_id}
+```
+Response:
+```json
+{
+    "code": 20000,
+    "data": "{id:1}",
+    "msg": "删除成功"
+}
+```
