@@ -109,12 +109,12 @@ Response:
 ## 参考交易所API
 ### 1.更新或添加参考交易所
 Parameters:
-
 | Name | Type | Example | Description  |
 | ---- | ---- | -------- | ------------ |
+| id | INT | 1 | 无id为新增，有id为更新 |
 | name | STRING | okex | 参考交易所名|
 | params | STRING | {...} | 参数|
-| class_id | STRING | 1 | 参考交易所类id |
+| class_id | INT | 1 | 参考交易所类id |
 ```
 POST /refer-exchange
 ```
