@@ -234,6 +234,32 @@ Response:
     "msg": "查询成功"
 }
 ```
+### 4.通过做市交易所名搜索做市交易所
+```
+GET /exchanges/{exchange_name}
+```
+Response:
+```json
+{
+    "code": 20000,
+    "data": [
+        {
+            "CreatedAt": "2020-06-19T16:24:28+08:00",
+            "UpdatedAt": "2020-06-19T16:24:28+08:00",
+            "DeletedAt": null,
+            "ID": 2,
+            "name": "测试交易所账户2",
+            "symbol": "BTC-USDT",
+            "api_key": "dsgdsge9349tu9",
+            "secret": "kvsdvso88888",
+            "price_precision": 8,
+            "volume_precision": 8
+        }
+    ],
+    "msg": "查询成功"
+}
+```
+
 
 ## 策略类API
 ### 1.更新或添加策略类
@@ -287,12 +313,12 @@ Parameters:
 
 | Name | Type | Example | Description  |
 | ---- | ---- | -------- | ------------ |
-| name | STRING | 测试策略 | 名称 |
+| id | INT | 1 | 策略id |
 | group_id | STRING | 1 | 策略组id |
 | class_id | STRING | 1 | 策略类id |
 | client_id | STRING | 1 | 客户端id |
-| status | STRING | 0 | 状态 |
 | params | STRING | {...} | 参数 |
+| status | STRING | 0 | 状态 |
 ```
 POST /strategy-object
 ```
@@ -386,13 +412,15 @@ Response:
 ##客户端API
 ### 1.更新或添加客户端
 Parameters:
-
 | Name | Type | Example | Description  |
 | ---- | ---- | -------- | ------------ |
+| id | INT | 1 | id(有则更新没有则新建) |
 | name | STRING | 测试客户端 | 名称 |
 | public_host | STRING | 1 | 公网ip |
-| private_host | STRING | 1 | 内网ip |
-| port | STRING |6666 | 端口 |
+| port | STRING | 6666 | 端口 |
+| cpu_usage | float | 0.1 | cpu使用率 |
+| mem_usage | float | 0.2 | 内存使用率 |
+| disk_usage | float | 0.3 | 硬盘使用率 |
 ```
 POST /client
 ```
@@ -813,5 +841,33 @@ Response:
     "code": 20000,
     "data": "{id:1}",
     "msg": "删除成功"
+}
+```
+### 4.通过策略组名搜索策略组
+```
+GET /strategy-groups/{strategy_group_name}
+```
+Response:
+```json
+{
+    "code": 20000,
+    "data": [
+                {
+                    "id": 13,
+                    "name": "liangjiefei2",
+                    "client_id": 1,
+                    "strategy_objects": [
+                        {
+                            "strategy_object_id": 14,
+                            "strategy_class_id": 13,
+                            "strategy_status": 0
+                        }
+                    ],
+                    "CreatedAt": "2020-08-19T10:33:04+08:00",
+                    "UpdatedAt": "2020-08-19T10:33:04+08:00",
+                    "DeletedAt": null
+                }
+    ],
+    "msg": "查询成功"
 }
 ```
