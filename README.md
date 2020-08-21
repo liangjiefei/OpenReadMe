@@ -141,6 +141,10 @@ Response:
 ```
 
 ### 3.获取所有参考交易所
+| Name | Type | Example | Description  |
+| ---- | ---- | -------- | ------------ |
+| page | INT | 1 | 页数 |
+| page_size | INT | 1 | 每页数量 |
 ```
 GET /refer-exchanges
 ```
@@ -202,6 +206,10 @@ Response:
 ```
 
 ### 3.获取所有做市交易所
+| Name | Type | Example | Description  |
+| ---- | ---- | -------- | ------------ |
+| page | INT | 1 | 页数 |
+| page_size | INT | 1 | 每页数量 |
 ```
 GET /exchanges
 ```
@@ -764,6 +772,10 @@ Response:
 }
 ```
 ### 2.查询所有策略组
+| Name | Type | Example | Description  |
+| ---- | ---- | -------- | ------------ |
+| page | INT | 1 | 页数 |
+| page_size | INT | 1 | 每页数量 |
 ```
 GET /strategy-groups
 ```
