@@ -9,9 +9,7 @@
 -[客户端API](#客户端API)
 -[策略操作API](#策略操作API)    
 -[用户API](#用户API)  
--[登陆API](#登陆API)  
--[权限API](#权限API)  
--[用户权限API](#用户权限API)  
+-[登陆API](#登陆API)    
 -[策略组API](#策略组API)  
 #中控服务端API说明
 
@@ -507,7 +505,7 @@ Response:
 Parameters:
 | Name | Type | Example | Description  |
 | ---- | ---- | -------- | ------------ |
-| id | STRING | 1 | 客户端id |
+| id | INT | 1 | 客户端id |
 | remark | STRING | 1 |  备注 |
 ```
 POST /client/remark
@@ -563,10 +561,11 @@ Parameters:
 | Name | Type | Example | Description  |
 | ---- | ---- | -------- | ------------ |
 | id | STRING | 1 | 用户id(如果为空则新建) |
-| name | STRING | test | 用户名 |
+| name | STRING | 1111 | 用户名 |
 | email | STRING | 2222@qq.com | 邮箱 |
 | phone | STRING | 110 | 手机 |
-| password | STRING | dfsdfsdgfs | 密码 |
+| password | STRING | 1111 | 密码 |
+| powers | LIST | ["StrategyParamsPower","StrategyGroupsPower","ReferExchangeParamsPower","ReferExchangesPower","ExchangesPower","ClientsPower","UsersPower"] | 权限 |
 ```
 POST /user
 ```
@@ -622,13 +621,13 @@ Response:
 }
 ```
 ## 登陆API
-### 1. 登陆(返回的token需要带在headers内,其他所有的接口都需要验证token,目前还没做)
+### 1. 登陆(返回的token需要带在headers内，字段为Authorization)
 Parameters:
 
 | Name | Type | Example | Description  |
 | ---- | ---- | -------- | ------------ |
-| name | STRING | liangjiefei | 用户名 |
-| password | STRING | 123456 | 密码 |
+| name | STRING | admin | 用户名 |
+| password | STRING | admin | 密码 |
 ```
 POST /login
 ```
@@ -637,146 +636,18 @@ Response:
 {
     "code": 20000,
     "data": {
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6ImxpYW5namllZmVpIiwiZXhwIjoxNTk3NzY0NDQ0fQ.-4C_0eM-BLdKhnmNbuua7VFoBNyvcNc4KGt73K8uBL4"
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6ImFkbWluIiwiZXhwIjoxNTk4MzA0NTkxfQ.JZLV4EmDN8YuP8qweAXd6KL6TLggWWuL_0xtFWD9qtA",
+        "powers": [
+            "StrategyParamsPower",
+            "StrategyGroupsPower",
+            "ReferExchangeParamsPower",
+            "ReferExchangesPower",
+            "ExchangesPower",
+            "ClientsPower",
+            "UsersPower"
+        ]
     },
     "msg": "登陆成功"
-}
-```
-## 权限API
-### 1.更新或添加权限
-Parameters:
-
-| Name | Type | Example | Description  |
-| ---- | ---- | -------- | ------------ |
-| id | STRING | 1 | 为空则为创建 |
-| name | STRING | 创建用户权限 | 权限名称 |
-| path | STRING | /user | 请求路径 |
-| method | STRING | POST | 请求方法 |
-```
-POST /power
-```
-Response:
-```json
-{
-    "code": 20000,
-    "data": {
-        "id": 2,
-        "name": "删除用户权限",
-        "path": "/user/:id",
-        "method": "DELETE"
-    },
-    "msg": "存储成功"
-}
-```
-### 2.删除权限
-```
-DELETE /power/{power_id}
-```
-Response:
-```json
-{
-    "code": 20000,
-    "data": "{id:2}",
-    "msg": "删除成功"
-}
-```
-### 3.获取所有权限
-```
-GET /powers
-```
-Response:
-```json
-{
-    "code": 20000,
-    "data": [
-        {
-            "id": 1,
-            "name": "创建用户权限",
-            "path": "/user",
-            "method": "POST",
-            "CreatedAt": "2020-08-18T15:38:48+08:00",
-            "UpdatedAt": "2020-08-18T15:38:48+08:00",
-            "DeletedAt": null
-        }
-    ],
-    "msg": "查询成功"
-}
-```
-## 用户权限API
-### 1.增加用户权限
-Parameters:
-
-| Name | Type | Example | Description  |
-| ---- | ---- | -------- | ------------ |
-| user_id | STRING | 1 | 用户id |
-| power_id | STRING | /1 | 权限id |
-```
-POST /user-power
-```
-Response:
-```json
-{
-    "code": 20000,
-    "data": {
-        "id": 1,
-        "user_id": 1,
-        "power_id": 1
-    },
-    "msg": "存储成功"
-}
-```
-### 2.删除用户权限
-```
-DELETE /user-power/{user_power_id}
-```
-Response:
-```json
-{
-    "code": 20000,
-    "data": "{id:2}",
-    "msg": "删除成功"
-}
-```
-### 3.获取所有用户权限
-```
-GET /user-powers
-```
-Response:
-```json
-{
-    "code": 20000,
-    "data": [
-        {
-            "id": 1,
-            "user_id": 1,
-            "power_id": 1,
-            "CreatedAt": "2020-08-18T15:52:34+08:00",
-            "UpdatedAt": "2020-08-18T15:52:34+08:00",
-            "DeletedAt": null
-        }
-    ],
-    "msg": "查询成功"
-}
-```
-### 4.获取某个用户权限
-```
-GET /user-powers/{user_id}
-```
-Response:
-```json
-{
-    "code": 20000,
-    "data": [
-        {
-            "id": 1,
-            "user_id": 1,
-            "power_id": 1,
-            "CreatedAt": "2020-08-18T15:52:34+08:00",
-            "UpdatedAt": "2020-08-18T15:52:34+08:00",
-            "DeletedAt": null
-        }
-    ],
-    "msg": "查询成功"
 }
 ```
 ## 策略组API
