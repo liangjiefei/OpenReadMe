@@ -10,6 +10,7 @@
 -[策略操作API](#策略操作API)    
 -[用户API](#用户API)  
 -[登陆API](#登陆API)    
+-[注册API](#注册API)    
 -[策略组API](#策略组API)  
 #中控服务端API说明
 
@@ -767,5 +768,31 @@ Response:
                 }
     ],
     "msg": "查询成功"
+}
+```
+# 注册API
+### 1. 注册用户
+Parameters:
+| Name | Type | Example | Description  |
+| ---- | ---- | -------- | ------------ |
+| name | STRING | 1111 | 用户名 |
+| email | STRING | 2222@qq.com | 邮箱 |
+| phone | STRING | 110 | 手机 |
+| password | STRING | 1111 | 密码 |
+```
+POST /register
+```
+Response:
+```json
+{
+    "code": 20000,
+    "data": {
+        "id": 2,
+        "name": "liangjiefei2",
+        "email": "22222",
+        "phone": "edeeeeeee",
+        "password": "123456"
+    },
+    "msg": "注册成功"
 }
 ```
